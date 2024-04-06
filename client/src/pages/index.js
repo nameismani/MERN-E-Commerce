@@ -8,6 +8,10 @@ import Shop from "./Shop";
 import Navigation from "./Navigation";
 import UserList from "./UserList";
 import CategoryList from "./CategoryList";
+import ProductList from "./ProductList";
+import UserOrder from "./UserOrder";
+import OrderList from "./OrderList";
+import AdminDashboard from "./AdminDashboard";
 
 export {
   Home,
@@ -20,4 +24,8 @@ export {
   Navigation,
   UserList,
   CategoryList,
+  ProductList,
+  UserOrder,
+  OrderList,
+  AdminDashboard,
 };

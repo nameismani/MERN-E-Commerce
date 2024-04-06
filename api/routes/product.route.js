@@ -6,6 +6,12 @@ const {
   addProduct,
   fetchAllProducts,
   addProductReview,
+  fetchTopProducts,
+  fetchNewProducts,
+  fetchProductById,
+  updateProductDetails,
+  removeProduct,
+  filterProducts,
 } = require("../controllers/Product.controller");
 // controllers
 const {
@@ -23,14 +29,14 @@ router.route("/allproducts").get(fetchAllProducts);
 router.route("/:id/reviews").post(verifyToken, checkId, addProductReview);
 
 router.get("/top", fetchTopProducts);
-// router.get("/new", fetchNewProducts);
+router.get("/new", fetchNewProducts);
 
-// router
-//   .route("/:id")
-//   .get(fetchProductById)
-//   .put(authenticate, authorizeAdmin, formidable(), updateProductDetails)
-//   .delete(authenticate, authorizeAdmin, removeProduct);
+router
+  .route("/:id")
+  .get(fetchProductById)
+  .put(verifyToken, authorizeAdmin, formidable(), updateProductDetails)
+  .delete(verifyToken, authorizeAdmin, removeProduct);
 
-// router.route("/filtered-products").post(filterProducts);
+router.route("/filtered-products").post(filterProducts);
 
 module.exports = router;

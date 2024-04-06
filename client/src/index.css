@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   background: #0f0f10;
   color: #fff;
 }
@@ -10,4 +10,9 @@ body {
 input,
 textarea {
   color: #000;
+} */
+
+body {
+  background: white;
+  color: black;
 }
