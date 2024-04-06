@@ -22,8 +22,8 @@ app.use(morgan("dev"));
 //nameismani-mern-ecommerce.netlify.app/
 app.use(
   cors({
-    // credentials: true,
-    // optionsSuccessStatus: 200,
+    credentials: true,
+    optionsSuccessStatus: 200,
     methods: ["POST", "GET", "PUT", "PATCH"],
     origin: [
       "http://localhost:5173",
