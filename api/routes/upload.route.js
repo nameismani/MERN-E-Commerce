@@ -39,7 +39,7 @@ router.post("/", (req, res) => {
       res.status(200).json({
         success: true,
         message: "Image uploaded successfully",
-        image: `http://localhost:8002/images/${req.file.filename}`,
+        image: `https://mern-e-commerce-8xpe.onrender.com/images/${req.file.filename}`,
       });
     } else {
       res
