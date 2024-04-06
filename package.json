@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon api/server.js",
+    "dev:frontend": "npm install --prefix frontend start",
     "frontend": "npm run dev --prefix  client",
     "dev": "concurrently \"npm run formidable\" \"npm run start\"",
-    "build": "npm install && npm install --prefix client && npm run build --prefix client"
+    "build": "npm install && npm install --prefix client &&  npm run build --prefix client"
   },
   "keywords": [],
   "author": "",

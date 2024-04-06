@@ -114,7 +114,7 @@ const Order = () => {
     document.querySelector("#pay_btn").disabled = true;
     try {
       const { data } = await axios.post(
-        "/api/orders/payment/process",
+        "https://mern-e-commerce-8xpe.onrender.com/api/orders/payment/process",
         paymentData
       );
       const clientSecret = data.client_secret;

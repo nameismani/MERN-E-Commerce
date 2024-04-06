@@ -32,7 +32,9 @@ function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
   useEffect(() => {
     async function getStripeApiKey() {
-      const { data } = await axios.get("/api/orders/stripeapi");
+      const { data } = await axios.get(
+        "https://mern-e-commerce-8xpe.onrender.com/api/orders/stripeapi"
+      );
       // console.log(data.stripeApiKey);
       setStripeApiKey(data.stripeApiKey);
     }

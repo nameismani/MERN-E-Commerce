@@ -3,7 +3,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 dotenv.config();
 const express = require("express");
-
+const cors = require("cors");
 const morgan = require("morgan");
 const router = require("./routes/index");
 const errorMiddleware = require("./middlewares/errorMiddleware");
@@ -19,8 +19,19 @@ const publicDirectoryPath = path.join(__dirname, "public");
 connectDB();
 const app = express();
 app.use(morgan("dev"));
-
-app.use(express.json());
+//nameismani-mern-ecommerce.netlify.app/
+app.use(
+  cors({
+    // credentials: true,
+    // optionsSuccessStatus: 200,
+    methods: ["POST", "GET", "PUT", "PATCH"],
+    origin: [
+      "http://localhost:5173",
+      "https://nameismani-mern-ecommerce.netlify.app",
+    ],
+  })
+);
+https: app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(router);

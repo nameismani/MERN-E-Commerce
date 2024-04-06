@@ -1,4 +1,4 @@
-export const BASE_URL = "";
+export const BASE_URL = "https://mern-e-commerce-8xpe.onrender.com";
 export const AUTH_URL = "/api/auth";
 export const USERS_URL = "/api/users";
 export const CATEGORY_URL = "/api/category";
