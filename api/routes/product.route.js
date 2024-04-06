@@ -12,7 +12,7 @@ const {
   updateProductDetails,
   removeProduct,
   filterProducts,
-} = require("../controllers/Product.controller");
+} = require("../controllers/product.controller");
 // controllers
 const {
   verifyToken,
