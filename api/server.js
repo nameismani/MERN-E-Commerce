@@ -29,8 +29,32 @@ app.use(errorMiddleware);
 //   res.send({ clientId: process.env.PAYPAL_CLIENT_ID });
 // });
 
-// const __dirname = path.resolve();
+// --------------------------deployment------------------------------
 app.use(express.static(publicDirectoryPath));
+const __dirname1 = path.resolve();
+console.log(
+  path.join(__dirname1, "client", "dist"),
+  "asdf",
+  process.env.NODE_ENV
+);
+if (process.env.NODE_ENV === "production") {
+  console.log("production");
+  app.use(express.static(path.join(__dirname1, "/client/dist")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.join(__dirname1, "client", "dist", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    console.log("development");
+    res.send("API is running..");
+  });
+}
+
+// --------------------------deployment------------------------------
+
+// const __dirname = path.resolve();
+
 // app.use("/uploads", express.static(path.join(__dirname + "/uploads")));
 
 app.listen(port, () => console.log(`Server running on port: ${port}`));
