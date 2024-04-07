@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import axios from "axios";
+axios.defaults.withCredentials = true;
 import { useElements, useStripe } from "@stripe/react-stripe-js";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
@@ -168,11 +169,13 @@ const Order = () => {
   };
 
   return isLoading ? (
-    <Loader />
+    <div className="h-screen flex justify-center items-center">
+      <Loader />
+    </div>
   ) : error ? (
     <Messsage variant="danger">{error.data.message}</Messsage>
   ) : (
-    <div className="container mx-atuo w-[90%] flex flex-col ml-[5rem] md:flex-row">
+    <div className="container mx-atuo w-[90%] flex flex-col ml-[2.3rem] md:ml-[5rem] md:flex-row">
       <div className="md:w-2/3 pr-4">
         <div className="border gray-300 mt-5 pb-4 mb-5">
           {order.orderItems.length === 0 ? (
@@ -226,7 +229,12 @@ const Order = () => {
         <div className="mt-10 w-[90%] block mx-auto">
           <form className="wfull" onSubmit={handleSubmit}>
             <h1 className="mb-4">Card Info</h1>
-            <div className="full pr-8 border-r-2 border-slate-300">
+            <div className="full pr-8  border-slate-300">
+              <p className="text-sm md:text-lg text-slate-500 ">
+                Please paste the card number below
+                <span className="text-red-500"> 4000 0035 6000 0008</span> and
+                enter random cv number and expire date
+              </p>
               <label
                 htmlFor="card_num_field"
                 className="text-neutral-800 font-bold text-sm mb-2 block"
@@ -236,11 +244,16 @@ const Order = () => {
               <CardNumberElement
                 type="text"
                 id="card_num_field"
+                // options={{
+                //   // placeholder: "**** **** **** ****", // Placeholder for card number
+                //   value: "4000 0035 6000 0008", // Default card number
+                // }}
+                // value="400 000 35600 00008"
                 className=" h-10 w-full rounded-md border-2 px-4 py-1.5  mb-4"
               />
             </div>
 
-            <div className="full pr-8 border-r-2 border-slate-300">
+            <div className="full pr-8  border-slate-300">
               <label
                 htmlFor="card_exp_field"
                 className="text-neutral-800 font-bold text-sm mb-2 block"
@@ -254,7 +267,7 @@ const Order = () => {
               />
             </div>
 
-            <div className="full pr-8 border-r-2 border-slate-300">
+            <div className="full pr-8  border-slate-300">
               <label
                 htmlFor="card_cvc_field"
                 className="text-neutral-800 font-bold text-sm mb-2 block"

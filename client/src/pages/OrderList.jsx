@@ -10,13 +10,15 @@ const OrderList = () => {
   return (
     <>
       {isLoading ? (
-        <Loader />
+        <div className="h-screen flex justify-center items-center">
+          <Loader />
+        </div>
       ) : error ? (
         <Message variant="danger">
           {error?.data?.message || error.error}
         </Message>
       ) : (
-        <table className="container mx-auto">
+        <table className="container w-[90%] mx-auto">
           <AdminMenu />
 
           <thead className="w-full border">

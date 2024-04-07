@@ -61,7 +61,9 @@ const UserList = () => {
     <div className="p-4">
       <h1 className="text-2xl text-center font-semibold mb-4">Users</h1>
       {isLoading ? (
-        <Loader />
+        <div className="h-screen flex justify-center items-center">
+          <Loader />
+        </div>
       ) : error ? (
         <Message variant="danger">
           {error?.data?.message || error.error}

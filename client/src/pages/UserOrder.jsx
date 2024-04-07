@@ -11,11 +11,13 @@ const UserOrder = () => {
       <h2 className="text-2xl font-semibold mb-4">My Orders </h2>
 
       {isLoading ? (
-        <Loader />
+        <div className="h-screen flex justify-center items-center">
+          <Loader />
+        </div>
       ) : error ? (
         <Message variant="danger">{error?.data?.error || error.error}</Message>
       ) : (
-        <table className="w-full mx-auto">
+        <table className="w-full mx-auto overflow-scroll">
           <thead>
             <tr>
               <td className="py-2">IMAGE</td>
@@ -34,7 +36,7 @@ const UserOrder = () => {
                 <img
                   src={order.orderItems[0].image}
                   alt={order.user}
-                  className="w-[6rem] mb-5"
+                  className="md:w-[6rem] mb-5"
                 />
 
                 <td className="py-2">{order._id}</td>
@@ -43,11 +45,11 @@ const UserOrder = () => {
 
                 <td className="py-2">
                   {order.isPaid ? (
-                    <p className="p-1 text-center bg-green-400 w-[6rem] rounded-full">
+                    <p className="p-1 text-center bg-green-400 md:w-[6rem] rounded-full">
                       Completed
                     </p>
                   ) : (
-                    <p className="p-1 text-center bg-red-400 w-[6rem] rounded-full">
+                    <p className="p-1 text-center bg-red-400 md:w-[6rem] rounded-full">
                       Pending
                     </p>
                   )}
@@ -55,7 +57,7 @@ const UserOrder = () => {
 
                 <td className="px-2 py-2">
                   {order.isDelivered ? (
-                    <p className="p-1 text-center bg-green-400 w-[6rem] rounded-full">
+                    <p className="p-1 text-center bg-green-400 md:w-[6rem] rounded-full">
                       Completed
                     </p>
                   ) : (

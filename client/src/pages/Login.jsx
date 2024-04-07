@@ -63,7 +63,7 @@ const Login = () => {
 
           <form
             onSubmit={submitHandler}
-            className="container w-[90vw] md:w-[40rem]"
+            className="container w-[86vw] md:w-[40rem]"
           >
             <div className="my-[2rem]">
               <label
@@ -111,7 +111,7 @@ const Login = () => {
           </form>
 
           <div className="mt-4">
-            <p className="text-white">
+            <p className="text-black">
               New Customer?{" "}
               <Link
                 // to={redirect ? `/register?redirect=${redirect}` : "/register"}

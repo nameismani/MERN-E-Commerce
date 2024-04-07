@@ -7,6 +7,11 @@
 #navigation-container:hover {
   width: 15%;
 }
+@media (max-width: 600px) {
+  #navigation-container:hover {
+    width: 50%;
+  }
+}
 
 /* Initially hide nav-item-name */
 .nav-item-name {

@@ -6,8 +6,8 @@ const Favorites = () => {
   const favorites = useSelector(selectFavoriteProduct);
 
   return (
-    <div className="ml-[10rem]">
-      <h1 className="text-lg font-bold ml-[3rem] mt-[3rem]">
+    <div className="mx-auto md:ml-[10rem]">
+      <h1 className="text-sm md:text-lg font-bold md:ml-[3rem] text-center md:text-start mt-[1rem] md:mt-[3rem]">
         FAVORITE PRODUCTS
       </h1>
 

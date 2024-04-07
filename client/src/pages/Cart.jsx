@@ -28,18 +28,23 @@ const Cart = () => {
 
   return (
     <>
-      <div className="container flex justify-around items-start flex wrap mx-auto mt-8">
+      <div className="container   md:justify-around items-start flex wrap mx-auto mt-8">
         {cartItems.length === 0 ? (
           <div>
             Your cart is empty <Link to="/shop">Go To Shop</Link>
           </div>
         ) : (
           <>
-            <div className="flex flex-col w-[80%]">
-              <h1 className="text-2xl font-semibold mb-4">Shopping Cart</h1>
+            <div className="flex flex-col md:w-[80%]">
+              <h1 className=" text-xl md:text-2xl font-semibold mb-4">
+                Shopping Cart
+              </h1>
 
               {cartItems.map((item) => (
-                <div key={item._id} className="flex items-enter mb-[1rem] pb-2">
+                <div
+                  key={item._id}
+                  className="flex items-center justify-center w-full mb-[1rem] pb-2"
+                >
                   <div className="w-[5rem] h-[5rem]">
                     <img
                       src={item.image}
@@ -66,7 +71,7 @@ const Cart = () => {
                     </div>
                   </div>
 
-                  <div className="w-24">
+                  <div className="md:w-24">
                     <select
                       className="w-full p-1 border rounded text-black"
                       value={item.qty}
@@ -84,7 +89,7 @@ const Cart = () => {
 
                   <div>
                     <button
-                      className="text-red-500 mr-[5rem]"
+                      className="text-red-500 md:mr-[5rem]"
                       onClick={() => removeFromCartHandler(item._id)}
                     >
                       <FaTrash className="ml-[1rem] mt-[.5rem]" />
@@ -93,7 +98,7 @@ const Cart = () => {
                 </div>
               ))}
 
-              <div className="mt-8 w-[40rem]">
+              <div className="mt-8 md:w-[40rem] mx-auto md:mx-0">
                 <div className="p-4 rounded-lg">
                   <h2 className="text-xl font-semibold mb-2">
                     Items ({cartItems.reduce((acc, item) => acc + item.qty, 0)})

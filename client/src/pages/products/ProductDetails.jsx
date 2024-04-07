@@ -70,20 +70,25 @@ const ProductDetails = () => {
   return (
     <>
       <div>
-        <Link to="/" className=" font-semibold hover:underline ml-[10rem]">
+        <Link
+          to="/"
+          className=" font-semibold hover:underline ml-[4rem] md:ml-[10rem]"
+        >
           Go Back
         </Link>
       </div>
 
       {isLoading ? (
-        <Loader />
+        <div className="h-screen flex justify-center items-center">
+          <Loader />
+        </div>
       ) : error ? (
         <Message variant="danger">
           {error?.data?.message || error.message}
         </Message>
       ) : (
         <>
-          <div className="flex flex-wrap relative items-between mt-[2rem] ml-[10rem]">
+          <div className="flex flex-wrap relative items-between mt-[.5rem] md:mt-[2rem] ml-[2.4rem] md:ml-[10rem]">
             <div>
               <img
                 src={product?.products?.image}
@@ -93,23 +98,25 @@ const ProductDetails = () => {
               <HeartIcon product={product?.products} />
             </div>
 
-            <div className="flex flex-col justify-between">
-              <h2 className="text-2xl font-semibold">
+            <div className="flex flex-col md:justify-between">
+              <h2 className="md:text-2xl text-sm   font-semibold">
                 {product?.products?.name}
               </h2>
-              <p className="my-4 xl:w-[35rem] lg:w-[35rem] md:w-[30rem] text-[#B0B0B0]">
+              <p className="my-4 xl:w-[35rem] lg:w-[35rem] md:w-[30rem] text-sm md:text-lg w-full text-[#B0B0B0]">
                 {product?.products?.description}
               </p>
 
-              <p className="text-5xl my-4 font-extrabold">{formattedPrice}</p>
+              <p className="text-2xl md:text-5xl my-4 font-extrabold">
+                {formattedPrice}
+              </p>
 
-              <div className="flex items-center justify-between w-[20rem]">
+              <div className="flex items-center justify-evenly mx-auto w-full md:w-[20rem]">
                 <div className="one">
                   <h1 className="flex items-center mb-6">
                     <FaStore className="mr-2 text-white" /> Brand:{" "}
                     {product?.products?.brand}
                   </h1>
-                  <h1 className="flex items-center mb-6 w-[20rem]">
+                  <h1 className="flex items-center mb-6 md:w-[20rem]">
                     <FaClock className="mr-2 text-white" /> Added:{" "}
                     {moment(product?.products?.createAt).fromNow()}
                   </h1>
@@ -127,7 +134,7 @@ const ProductDetails = () => {
                     <FaShoppingCart className="mr-2 text-white" /> Quantity:{" "}
                     {product?.products?.quantity}
                   </h1>
-                  <h1 className="flex items-center mb-6 w-[10rem]">
+                  <h1 className="flex items-center mb-6 md:w-[10rem]">
                     <FaBox className="mr-2 text-white" /> In Stock:{" "}
                     {product?.products?.countInStock}
                   </h1>
@@ -145,7 +152,7 @@ const ProductDetails = () => {
                     <select
                       value={qty}
                       onChange={(e) => setQty(e.target.value)}
-                      className="p-2 w-[6rem] rounded-lg text-black"
+                      className="p-2 md:w-[6rem] rounded-lg text-black"
                     >
                       {[...Array(product?.products?.countInStock).keys()].map(
                         (x) => (
@@ -170,7 +177,7 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            <div className="mt-[5rem] container flex flex-wrap items-start justify-between ml-[10rem]">
+            {/* <div className="mt-[5rem] container flex flex-wrap items-start justify-between ml-[10rem]">
               <ProductTabs
                 loadingProductReview={loadingProductReview}
                 userInfo={userInfo}
@@ -181,7 +188,7 @@ const ProductDetails = () => {
                 setComment={setComment}
                 product={product?.products}
               />
-            </div>
+            </div> */}
           </div>
         </>
       )}

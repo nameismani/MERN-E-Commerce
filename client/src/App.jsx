@@ -27,7 +27,7 @@ import AllProducts from "./pages/AllProducts";
 import { Order, PlaceOrder, Shipping } from "./pages/orders";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-
+axios.defaults.withCredentials = true;
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
   useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
       const { data } = await axios.get(
         "https://mern-e-commerce-8xpe.onrender.com/api/orders/stripeapi"
       );
-      // console.log(data.stripeApiKey);
+      console.log(data.stripeApiKey);
       setStripeApiKey(data.stripeApiKey);
     }
     getStripeApiKey();

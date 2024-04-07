@@ -83,7 +83,7 @@ const Shop = () => {
   return (
     <>
       <div className="container mx-auto">
-        <div className="flex md:flex-row">
+        <div className="flex flex-col md:flex-row">
           <div className="bg-[#151515] p-3 mt-2 mb-2">
             <h2 className="h4 text-center py-2 bg-white rounded-full mb-2">
               Filter by Categories
@@ -136,7 +136,7 @@ const Shop = () => {
               ))}
             </div>
 
-            <h2 className="h4 text-center py-2 bg-white rounded-full mb-2">
+            {/* <h2 className="h4 text-center py-2 bg-white rounded-full mb-2">
               Filer by Price
             </h2>
 
@@ -148,26 +148,29 @@ const Shop = () => {
                 onChange={handlePriceChange}
                 className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:border-pink-300"
               />
-            </div>
+            </div> */}
 
-            <div className="p-5 pt-0">
+            {/* <div className="p-5 pt-0">
               <button
                 className="w-full border my-4"
                 onClick={() => window.location.reload()}
+                className="text-white"
               >
                 Reset
               </button>
-            </div>
+            </div> */}
           </div>
 
-          <div className="p-3">
+          <div className="md:py-3 pt-3">
             <h2 className="h4 text-center mb-2">{products?.length} Products</h2>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap w-full md:w-auto">
               {products.length === 0 ? (
-                <Loader />
+                <div className="h-screen mx-auto flex justify-center items-center">
+                  <Loader />
+                </div>
               ) : (
                 products?.map((p) => (
-                  <div className="p-3" key={p._id}>
+                  <div className="p-3 " key={p._id}>
                     <ProductCard p={p} />
                   </div>
                 ))
